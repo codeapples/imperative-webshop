@@ -130,15 +130,16 @@ void cart_add(state_t* state) {
     console_write("In cart: ");
     console_write_color(2, "%d\n\n", cart_quantity);
 
+    cursor_show();
     console_write("Please enter required quantity: ");
+    cursor_hide();
     // use fgets & sscanf instead of scanf_s for stability
-    fflush(stdin);
     char buffer[128] = {0};
     u16_t quantity = 0;
     if (!fgets(buffer, sizeof(buffer), stdin) || sscanf_s(buffer, "%hd", &quantity) != 1) {
       state->menu.submenu.variant = 2;
     } else {
-      // if we git here then we have a valid quantity
+      // if we got here then we have a valid quantity
       if (quantity + cart_quantity > item->quantity) {
         state->menu.submenu.variant = 3;
       } else {
@@ -178,7 +179,6 @@ void cart_add(state_t* state) {
     menu_dialog_binary(state, "Try again", "Back", 1, 0, false);
     return;
   }
-
   // added to cart dialog
   if (state->menu.submenu.variant == 4) {
     console_write_color(5, "Items added to cart.\n\n");
@@ -217,7 +217,7 @@ void cart_add(state_t* state) {
       state->menu.submenu.variant = 1;
       break;
     }
-    if (key == 27) { // esc | give up
+    if (key == 27) { // esc
       menu_submenu_clear(state);
       break;
     }
