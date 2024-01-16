@@ -1,0 +1,7 @@
+BasedOnStyle: LLVM
+ColumnLimit: 95
+IndentWidth: 2
+ContinuationIndentWidth: 2
+PointerAlignment: Left
+AlignAfterOpenBracket: BlockIndent
+AlignEscapedNewlines: Left

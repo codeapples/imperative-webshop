@@ -1,0 +1,11 @@
+{
+  "explorer.fileNesting.enabled": false,
+  "[c]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "cmake.configureOnOpen": false,
+  "cSpell.words": ["isize", "kbhit"]
+}
